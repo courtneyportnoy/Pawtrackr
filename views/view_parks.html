@@ -1,0 +1,30 @@
+<div class="row">
+   <div class="twelve columns">
+      <h2>Manage Parks</h2>
+      <br>
+   </div>
+</div>
+<div class="row" id="yourfriends">
+    <div class="twelve columns">
+        <h3>Your Parks</h3>
+        <div class="manageIcons">
+            <span class="push"><img src="/img/iphone.png" id="pushFriends" class="pushIcon" width="20"></span>
+            <span class="push"><img src="/img/mailIcon.png" id="mailFriends" class="mailIcon" width="40"></span>
+        </div>
+    </div>
+</div>
+<form method="POST" action="/">
+   <div class="row">
+      <div class="seven columns">
+         <p><% for(i=0; i<user.parks.length; i++) { %>
+         <div class="row">
+               <ul class="delete_buttons">
+                  <li><a href="/profile/<%= user.fsID %>" class="nice tiny white radius button" id="delete_button"> Delete </a></li>
+               </ul>
+               <div class="park-icon"><img src="http://placehold.it/150"></div>
+               <div class="parkNameDisplay"><b><%= user.parks[i].parkname %> </b><br></div><br/><hr>
+               <% } %>
+         </div>
+      </div>
+   </div>
+</form>

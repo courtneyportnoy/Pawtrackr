@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="twelve columns">
+        <div class="single_park_info">
+            <div class="park-icon"><img src="/img/dogIcon.png"></div>
+            <div class="parkNameDisplay"><h2><%= park.venue.name %> </h2><br></div>
+            <div class="parkAddressDisplay"><% if(park.venue.location.address != undefined) { %><%= park.venue.location.address %><% } %>
+            <% if(park.venue.location.crossStreet != undefined) { %> (<%= park.venue.location.crossStreet %>)<% } %>
+            <% if(park.venue.location.city != undefined) { %> <%= park.venue.location.city %>, <% } %> <% if(park.venue.location.state != undefined) { %> <%= park.venue.location.state %></li><% } %><br/>
+     <!--       <% if(park.venue.location.lat != undefined) { %> lat: <%= park.venue.location.lat %> <% } %><br/>
+            <% if(park.venue.location.lng != undefined) { %> lng: <%= park.venue.location.lng %> <% } %><br/>       --> 
+            </div>
+        </div>
+        <div id="map_canvas" class="single_park_map" style="width:70%; height:200px;"></div>
+      <br>
+   </div>
+</div>
+
+<script>
+    parkLocations = eval(<%- mapParks %>);
+</script>

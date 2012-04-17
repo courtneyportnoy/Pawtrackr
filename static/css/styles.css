@@ -1,0 +1,225 @@
+.row {
+	max-width: 1200px;
+	/*border: 1px solid green;*/
+}
+.three.columns{
+	/*border: 1px solid black;*/
+	float: left;
+	width: 90px;
+	margin-left: 0;
+}
+.ten.columns{
+	border: 1px solid blue;
+}
+.six.columns{
+	/*border: 2px dashed red;*/
+	margin-left: 0;
+}
+.header {
+	/*background-color: #332723;*/
+	/*border-bottom: solid 4px #00a5ff;*/
+	background-color: #CCC;
+	height: 50px;
+	width: 100%;
+	left: 0;
+	top: 0;
+	position: fixed;
+	padding: 0 20px;
+	z-index: 5000;
+}
+.logo {
+    /*border: 3px dashed yellow;*/
+    position: fixed;
+    margin-top: 9px;
+}
+.container {
+	/*border: 4px solid red;*/
+	padding: 0;
+	z-index: 1;
+	margin-top: 60px;
+	margin-left: 5%;
+	margin-right: 5%;
+	position: relative;
+}
+.login_container {
+	border: 1px solid black;
+	padding: 20px;
+	width: 700px;
+}
+select.niceDropdown{
+	display: inline;
+}
+#registration .field input {
+	font-size: 14px;
+	max-width: 270px;
+}
+#registration .label {
+	clear: left;
+	width: 130px;
+	line-height: 30px;
+	color: #342824;
+	background: 0;
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+#registration .field, #registration .label {
+	/*border: 2px solid black;*/
+	margin-bottom: 5px;
+	float: left;
+}
+#registration .field {
+	width: 290px;
+}
+#registration .field #button {
+	/*border: 3px dashed orange;*/
+	float: right;
+	margin-right: 17px;
+}
+.dog-image {
+	border: 1px solid grey;
+	width: auto;
+	height: 150px;
+	margin-right: 5%;
+	float: left;
+}
+.placeholder{
+	border: 2px solid grey;
+	width: 960px;
+}
+.dogNameDisplay{
+	font-size: 4.0em;
+	line-height: 1.2em;
+	
+}
+.dogInfoDisplay, .dogBirthdayDisplay{
+	font-size: 12pt;
+	color: #342824;
+	line-height: 1.5em;	
+}
+#history{
+	float: right;
+	font-size: 12pt;
+	line-height: 1.2em;
+	border: 1px dotted black;
+}
+.input-text {
+	font-size:16px;
+	margin-bottom: 0;
+	color:#333;
+	padding:5px;
+	border:2px solid #999;
+	height: 30px;
+}
+.manageIcons{
+	float:right;
+	margin-right:1%;
+	margin-top:0;
+}
+.mailIcon{
+	padding-left: 100px;
+	top:0;
+	margin-bottom: .3em;
+	/*border: 1px solid blue;*/
+}
+.pushIcon{
+	margin-top: 3px;
+}
+#delete_button{
+	float: right;
+}
+#yourfriends{
+	/*border: 1px solid black;*/
+	background-color: #CCC;
+	padding: 2px 9px;
+}
+.park-icon{
+	/*border: 1px solid red;*/
+	float:left;
+	display: inline;
+	margin-right: 9px;
+}
+.single_park_info, .single_park_map{
+	margin-top: 2%;
+}
+
+/*---------------------HTML Elements-----------------------*/
+body {
+	/*background: #E2C191;*/
+	font-family: helvetica;
+	padding-bottom: 60px;
+}
+h2 {
+	/*border: 1px solid blue;*/
+    font-size: 2.0em;
+    color: #342824;
+    height: 1.0em;
+    text-align: left;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    display: inline;
+    
+}
+h4 {
+    font-size: 1.2em;
+    color: #342824;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+h3{
+	position: relative;
+	top: 0.25em;
+	line-height:1.0em;
+	display: inline;
+}
+p {
+	/*border: 1px solid red;*/
+	color: #342824;
+	font-size: 12px;
+	line-height: 1.2;
+	padding:0;
+	margin:10px 0;
+}
+select {
+    height:30px;
+    color: #333;
+    background-color: white;
+    font-size: 12px;
+    border: 1px solid #999;
+    width: 70px;
+}
+ul li{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+ul.formfields li {
+	/*border: 4px solid red;*/
+	float: left;
+	margin-bottom: 5px;
+}
+ul.dog_buttons{
+	float: right;
+}
+ul.dog_buttons li{
+	display: inline-block;
+}
+ul.actions {
+	position: fixed;
+	right: 10px;
+	margin-top: 9px;
+}
+ul.actions li{
+	margin-left: 5px;
+	display: inline-block;
+	float: left;
+	text-align: left;
+	padding: 0;
+}
+label {
+	font-size: 12px;
+	font-weight: normal;
+}
+/*---------------------HTML Elements-----------------------*/
+

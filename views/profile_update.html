@@ -1,0 +1,122 @@
+ <form name="profile_update" class="nice" method="post" action="/update/">
+    <input type="hidden" value="<%= user.username %>" name="username">
+    <div class="login_container">
+        <div class="row">
+            <div class="twelve columns">
+                <h2><%= user.username %></h2>
+                <br>
+            </div>
+        </div>
+        
+        <div class="row" id="user info">
+            <div class="two columns">
+                <h4>User Info</h4>
+                <br/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="five columns">
+                <label for="email">Email Address:</label>
+                <input type="text" class="input-text" name="email" placeholder="" id="email" value= "<%= user.email %>"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="five columns">
+                <label for="location">Location:</label>
+                <input type="text" class="input-text" name="location" placeholder="" id="location" value= "<%= user.location %>"/>
+            </div>
+        </div>
+        <div class="row" id="user dogs">
+            <div class="two columns">
+                <h4>Dogs</h4>
+                <br/>
+            </div>
+        </div>
+      <div id="dynamicInput" class="dynamicInput">
+        <p><% for(i=0; i<user.dogs.length; i++) { %>
+            <div class="row">
+                <div class="six columns">
+                    <label for="dogname1">Dog Name </label>
+                    <input type="text" max-length="255" class="input-text" name="dogname1" placeholder="Dog's Name" id="dogname1" value= "<%= user.dogs[i].dogname %>"/>
+                </div>
+            </div>
+            <div class="row">
+            <div class="six columns">
+                <div class="row display">
+                    <div class="three columns">
+                        <label for="gender1">Gender</label>
+                        <select class="gender1" name="gender1" id="niceDropdown" >
+                        <option> Select </option>
+                           <% for(j=0; j<dogGenders.length; j++) { %>
+                           <option <% if (dogGenders[j] == user.dogs[i].gender) { %>SELECTED <% } %> value="<%= dogGenders[j] %>"><%= dogGenders[j] %></option>
+                           <% } %>
+                        </select>
+                    </div>
+                    <div class="three columns">
+                        <label for="breed1">Breed </label>
+                        <select class="breed1" name="breed1" id="niceDropdown" selected= "<%= user.dogs[i].breed %>">
+                            <option> Select </option>
+                            <% for(j=0; j<dogBreeds.length; j++) { %>
+                           <option <% if (dogBreeds[j] == user.dogs[i].breed) { %>SELECTED <% } %> value="<%= dogBreeds[j] %>"><%= dogBreeds[j] %></option>
+                           <% } %>
+                        </select>
+                    </div>
+                    <div class="three columns">
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="six columns">
+                <div class="row display">                
+                    <div class="three columns">
+                        <label for="birthday">Birthday</label>
+                        <select class="niceDropdown" name="DateOfBirth_Month" id="DateOfBirth_Month">
+                            <option>Month</option>
+                            <% for(j=0; j<months.length; j++) { %>
+                           <option <% if (months[j] == user.dogs[i].birthday.month) { %>SELECTED <% } %> value="<%= months[j] %>"><%= months[j] %></option>
+                           <% } %>
+                        </select>
+                    </div>
+                    <div class="three columns">
+                        <label for="bday_day"> &nbsp</label>
+                        <select class="niceDropdown" name="DateOfBirth_Day" id="DateOfBirth_Day">
+                            <option>Day</option>
+                           <% for(j=0; j<days.length; j++) { %>
+                           <option <% if (days[j] == user.dogs[i].birthday.day) { %>SELECTED <% } %> value="<%= days[j] %>"><%= days[j] %></option>
+                           <% } %>
+                        </select>
+                    </div>
+                    <div class="three columns">
+                        <label for="bday_yr"> &nbsp</label>
+                        <select class="niceDropdown" name="DateOfBirth_Year" id="DateOfBirth_Year">
+                            <option>Year</option>
+                           <% for(j=0; j<years.length; j++) { %>
+                           <option <% if (years[j] == user.dogs[i].birthday.year) { %>SELECTED <% } %> value="<%= years[j] %>"><%= years[j] %></option>
+                           <% } %>
+                        </select>
+                    </div>
+                    <div class="three columns">
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="six columns">
+                <div class="row>
+                    <label for="dogphoto">Photo: </label><br/>
+                        <div class="dog-image"><img src="http://placehold.it/150"></div>
+                        <input type="file" name="dog-image">
+                </div>
+            </div>
+            <br/><hr>
+            <% } %>
+    </div>
+            <div class="row">
+                <div class="six columns">
+                  <input type="button" id="addAnotherDog" class="nice small white radius button" value="Add another dog">
+                     <input type="submit" class="nice small blue radius button" value="Submit" />
+                </div>
+            </div>
+        </div>
+ </form>
+ 

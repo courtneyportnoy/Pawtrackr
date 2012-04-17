@@ -1,0 +1,33 @@
+<div class="row">
+   <div class="twelve columns">
+      <h2>Manage Friends</h2>
+      <br>
+   </div>
+</div>
+<div class="row" id="yourfriends">
+    <div class="twelve columns">
+        <h3>Your Friends</h3>
+        <div class="manageIcons">
+            <span class="push"><img src="/img/iphone.png" id="pushFriends" class="pushIcon" width="20"></span>
+            <span class="push"><img src="/img/mailIcon.png" id="mailFriends" class="mailIcon" width="40"></span>
+        </div>
+    </div>
+</div>
+<form method="POST" action="/">
+   <div class="row">
+      <div class="seven columns">
+         <p><% for(i=0; i<user.friends.length; i++) { %>
+         <div class="row">
+               <ul class="delete_buttons">
+                  <li><a href="/profile/<%= user.fsID %>" class="nice tiny white radius button" id="delete_button"> Delete </a></li>
+               </ul>
+               <div class="dog-image"><img src="http://placehold.it/150"></div>
+               <div class="dogNameDisplay"><b><%= user.friends[i].dogname %> </b><br></div>
+               <div class="dogInfoDisplay"><%= user.friends[i].gender %> | <%= user.dogs[i].breed %><br/></div>
+               <div class="dogBirthdayDisplay">Born on <%=user.friends[i].birthday.month %> / <%= user.friends[i].birthday.day %> / <%= user.friends[i].birthday.year %></div>
+               </p><br/><br/><hr>
+               <% } %>
+         </div>
+      </div>
+   </div>
+</form>
