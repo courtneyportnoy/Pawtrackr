@@ -13,10 +13,6 @@ var passport = require('passport'),
 var FOURSQUARE_CLIENT_ID = "DWVWM0PVGVEKB52XINOJZ5BNTJZWW3SIKYY5C3QSJETNHS2R";
 var FOURSQUARE_CLIENT_SECRET = "LJZZF3AM1HA00I5JMPT2VLSINQ1D0N4LSUWDMB4JKVUHMJM1";
 
-/************ DATABASE CONFIGURATION **********/
-
-//connect to the mongolabs database - local server uses .env file
-app.db = mongoose.connect(process.env.MONGOLAB_URI); 
 
 // Include models.js - this file includes the database schema and defines the models used
 require('./models').configureSchema(schema, mongoose);
@@ -24,9 +20,9 @@ require('./models').configureSchema(schema, mongoose);
 //logo image stored in /static/img
 
 // Define your DB Model variables
-var User = require('.models/User');
-var Dog = require('.models/Dog');
-var Parks = require('.models/ParkData');
+var User = mongoose.model('User');
+var Dog = mongoose.model('Dog');
+var Parks = mongoose.model('ParkData');
 
 /************* END DATABASE CONFIGURATION *********/
 
@@ -113,7 +109,7 @@ module.exports = {
   // you can access models with db.User or db.ModelName
   User : User,
   Dog : Dog,
-  Parks : ParkData,
+  Parks : Parks,
   
   // DB Helper functions
   // initialize DB
@@ -126,7 +122,7 @@ module.exports = {
   },
 
     // save a user
-    saveUser: function(userInfo, callback) {
+    saveUser: function(profile, callback) {
         user = new User({
                     fsID : profile.id,
                     name : {
@@ -141,7 +137,7 @@ module.exports = {
     newUser.save(function(err) {
       if (err) {throw err;}
       //console.log('Name: ' + newUser.name + '\nEmail: ' + newUser.email);
-      callback(null, userInfo);
+      callback(null, profile);
     });
   },
   

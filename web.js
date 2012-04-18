@@ -4,8 +4,8 @@ var express = require('express')
   , mongoose = require('mongoose')
   , ejs = require('ejs')
   , routes = require('./routesConfig')
-  , DB = require('./accessDB').AccessDB
-  , mongoStore = require('connect-mongodb');
+  , DB = require('./accessDB').AccessDB;
+ // , mongoStore = require('connect-mongodb');
   
 var app = module.exports = express.createServer();
 global.app = app;

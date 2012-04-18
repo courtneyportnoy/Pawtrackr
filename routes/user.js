@@ -6,6 +6,16 @@ var db = require('../accessDB');
 
 
 module.exports = {
+    
+    index: function(request,response) {
+        templateData = {
+        pageTitle : "Pawtrackr",
+        user: request.user
+        }
+        console.log("------------------INDEX PAGE----------- User Is:" + request.user);
+        console.log("****************************************************************");
+        response.render('index.html', templateData);  
+    },
 
      // app.get('/login', ...
     login: function(request, response) {
