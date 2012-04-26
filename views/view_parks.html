@@ -13,18 +13,26 @@
         </div>
     </div>
 </div>
-<form method="POST" action="/">
-   <div class="row">
-      <div class="seven columns">
-         <p><% for(i=0; i<user.parks.length; i++) { %>
-         <div class="row">
-               <ul class="delete_buttons">
-                  <li><a href="/profile/<%= user.fsID %>" class="nice tiny white radius button" id="delete_button"> Delete </a></li>
-               </ul>
-               <div class="park-icon"><img src="http://placehold.it/150"></div>
-               <div class="parkNameDisplay"><b><%= user.parks[i].parkname %> </b><br></div><br/><hr>
-               <% } %>
-         </div>
+<div class="row">
+   <div class="seven columns">
+      <p><% for(i=1; i<7; i++) { %>
+      <div class="row">
+            <div class="dog-image"><img src="http://placehold.it/150"></div>
+            <div class="dogNameDisplay"><b> Park <%= i %> </b><br></div><hr>
+            <% } %>
       </div>
    </div>
-</form>
+</div>
+<div class="row">
+   <div class="seven columns">
+      <p><% for(i=0; i<user.parks.length; i++) { %>
+      <div class="row">
+            <ul class="delete_buttons">
+               <li><a href="/profile/<%= user.fsID %>" class="nice tiny white radius button" id="delete_button"> Delete </a></li>
+            </ul>
+            <div class="park-icon"><img src="http://placehold.it/150"></div>
+            <div class="parkNameDisplay"><b><%= user.parks[i].parkname %> </b><br></div><br/><hr>
+            <% } %>
+      </div>
+   </div>
+</div>

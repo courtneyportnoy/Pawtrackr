@@ -272,7 +272,7 @@
 	
 	
 	
-	img, object, embed { max-width: 100%; height: auto; }
+	/*img, object, embed { width: auto; max-height: 100%; }*/
 	img { -ms-interpolation-mode: bicubic; }
 	#map_canvas img, .map_canvas img {max-width: none!important;}
 	 
@@ -421,7 +421,7 @@
 	/* Colors ---------- */
 	.blue.button			{ background-color: #00a6fc; }
 	.red.button				{ background-color: #e91c21; }
-	.white.button			{ background-color: rgb(211,162,89); }
+	.white.button			{ background-color: #e9e9e9; color: #333; }
 	.black.button			{ background-color: #141414; }
 	.green.button			{ background-color: #5b8737; }
 	

@@ -41,7 +41,7 @@
 	/*border: 4px solid red;*/
 	padding: 0;
 	z-index: 1;
-	margin-top: 50px;
+	margin-top: 60px;
 	width: auto;
 	position: relative;
 }
@@ -151,7 +151,7 @@ select.niceDropdown{
 
 /*---------------------HTML Elements-----------------------*/
 body {
-	background: rgb(41,29,26);
+	background: rgb(255,255,255);
 	/*background-image: url('../img/backImage.png');*/
 	font-family: helvetica;
 	padding-bottom: 60px;

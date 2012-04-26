@@ -15,7 +15,7 @@
       <p><% for(i=0; i<user.dogs.length; i++) { %>
       <div class="row">
             <div class="dog-image"><a href="/user/<%= user.fsID %>/dog/<%=user.dogs[i]._id %>">
-                <img src="https://s3.amazonaws.com/<%= s3bucket %>/<%= user.dogs[i].profileImage[0].filename %>" height=150>
+                <img src="https://s3.amazonaws.com/<%= s3bucket %>/<%= user.dogs[i].profileImage[0].filename %>" class="resizeme" height=150 width=150>
             </a></div>
             <div class="dogNameDisplay"><b><%= user.dogs[i].dogname %> </b><br></div>
             <div class="dogInfoDisplay"><%= user.dogs[i].gender %> | <%= user.dogs[i].breed %><br/></div>
