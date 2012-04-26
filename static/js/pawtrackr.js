@@ -8,70 +8,10 @@ var currInfoWindow;
 //run this code when the browser has loaded
    jQuery(document).ready(function() {
       
-      //bind click event to the button #addAnother
-      jQuery("button#addAnother").click( addAnother );
+      //initialize google maps
       initialize();
       
    });
-   
-   //code for AJAX form submission
-   var addAnother = function(e) {
-      console.log("AJAX BUTTON CLICKED");
-      //serialize the form fields - put them into a string that can be sent to the server
-      
-      var formData = jQuery("form#add_dogs").serialize();
-      console.log(formData);
-        
-        // POST comment via AJAX
-        jQuery.ajax({
-            
-            url : '/ajax/add_dog',
-            type : 'POST',
-            data : formData, 
-            dataType : 'json',
-            
-            success : function(response) {
-                console.log(response);
-                if (response.status == "OK") {
-                    
-                    console.log("dog added successfully, let's display it");
-                    displayDog(response.dog);
-                    
-                    //reset the form
-                    jQuery("input[name='dogname']").val('');
-                    jQuery("select[name='gender']").val('');
-                    jQuery("select[name='breed']").val('');
-                    jQuery("select[name='DateOfBirth_Month']").val('');
-                    jQuery("select[name='DateOfBirth_Day']").val('');
-                    jQuery("select[name='DateOfBirth_Year']").val('');
-                }
-                
-            }, 
-            error : function(error) {
-                console.log("There was an error");
-                console.log(error);
-            }
-            
-        });
-        
-        // prevent form from submitting as it would normally
-        e.preventDefault();
-        return false;
-      }
-
-var displayDog = function(dogData) {
-    
-    // generate html for new comment
-    var dogHTML = "<div class='dog'><p>";
-    dogHTML += "<b>" + dogData.dogname + " </b><br>";
-    dogHTML += dogData.breed;
-    dogHTML += " | " + dogData.gender + "<br/>";
-    dogHTML += dogData.birthday.month + " " + dogData.birthday.day + ", " + dogData.birthday.year;
-    
-    //append new comment to DOM (rendered browser html)
-    jQuery("div.login_container").prepend(dogHTML);
-    
-}
 
  //Google Maps Function  
 function initialize() {
@@ -100,7 +40,7 @@ var displayMarkers = function() {
         
         // create info window
         var infowindow = new google.maps.InfoWindow({
-                content: "<h4>" + currLocation.title + "</h4>"
+                content: "<h4><a href='/dogpark/"+ currLocation.id + "'>"+ currLocation.title + "</a></h4>"
             });
         
         // create the map marker

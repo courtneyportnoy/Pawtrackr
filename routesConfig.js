@@ -4,6 +4,7 @@ var passport = require('passport');
 
 // Route methods
 var userRoute = require('./routes/user');
+var dataRoute = require('./routes/data');
 
 // Simple route middleware to ensure user is authenticated.
 function ensureAuthenticated(request, response, next) {
@@ -14,6 +15,9 @@ function ensureAuthenticated(request, response, next) {
 module.exports = function(app) {
     
     app.get('/', userRoute.index);
+    
+    //Sign up
+    app.get('/signup', userRoute.signup);
     
     // Display login page
     app.get('/login', userRoute.login);
@@ -27,10 +31,14 @@ module.exports = function(app) {
     //   which, in this example, will redirect the user to the home page.
     app.get('/auth/foursquare/callback', passport.authenticate('foursquare', { failureRedirect: '/login' }), function(request, response) {
         console.log("------------------Inside Foursquare Auth Callback----------- User Is:" + request.user.name.givenName);
-        console.log("****************************************************************");
+        console.log(request.newUser);
         console.log("****************************************************************");
         // redirect
-        response.redirect('/');    
+        if(request.newUser) {
+          response.redired('/user/:fsID/add_dogs');
+        } else {
+          response.redirect('/dogparks'); 
+        }
     });
     
     //Account page
@@ -50,7 +58,13 @@ module.exports = function(app) {
     
     //Add dogs
     app.get('/user/:fsID/add_dogs', ensureAuthenticated, userRoute.addDogs);
-    app.post('/ajax/add_dog', ensureAuthenticated, userRoute.postDogs);
+    app.post('/add_dog', ensureAuthenticated, userRoute.postDogs);
+    
+    //View Dog
+    app.get('/user/:fsID/dog/:dogID', ensureAuthenticated, userRoute.singleDog);
+    
+    //Delete dogs
+    app.get('/deleteDog/:dogID', ensureAuthenticated, userRoute.deleteDog);
     
     // Logout user
     app.get('/logout', userRoute.logout);
@@ -61,7 +75,8 @@ module.exports = function(app) {
     //singlePark
     app.get('/dogpark/:parkID', ensureAuthenticated, userRoute.singlePark);
 
-    //app.get('/getusers', userRoute.getUsers);
+    //app.get('/data/dogparks', dataRoute.dogparkData);
+    //app.get('/data/alldogs', dataRoute.alldogsData);
     
     //app.post('/upload', ensureAuthenticated, userRoute.uploadPost);    
     //app.get('/deleteimage/:imageID', ensureAuthenticated, userRoute.deleteImage);

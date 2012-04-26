@@ -21,6 +21,7 @@ require('./models').configureSchema(schema, mongoose);
 
 // Define your DB Model variables
 var User = mongoose.model('User');
+var Image = mongoose.model('Image');
 var Dog = mongoose.model('Dog');
 var Parks = mongoose.model('ParkData');
 
@@ -30,6 +31,9 @@ var Parks = mongoose.model('ParkData');
 //   To support persistent login sessions, Passport needs to be able to
 //   serialize users into the session.
 passport.serializeUser(function(user, done) {
+  console.log("***************INSIDE SERIALIZE USER******************");
+  console.log(user);
+  console.log("*******************************************************");
   done(null, user);
 });
 
@@ -52,6 +56,8 @@ passport.use(new FoursquareStrategy({
     // asynchronous verification, for effect...
     process.nextTick(function () {
         console.log("inside callback");
+        var newUser = new Boolean();
+        newUser = false;
               
         //check for an existing user and return done(null, user) where user is the existing user/doc from my database
         User.findOne({fsID:profile.id}, function(err,user){
@@ -66,13 +72,15 @@ passport.use(new FoursquareStrategy({
     
             //create new user with my schema
             } else {
+              newUser = true;
+              console.log(profile);
                 user = new User({
                     fsID : profile.id,
                     name : {
                         givenName: profile.name.givenName,
                         familyName: profile.name.familyName
                     },
-                    email : profile.email[0].value,
+                    email : profile.emails[0].value,
                     location : profile.city,
                     tok : accessToken
                     
@@ -86,7 +94,7 @@ passport.use(new FoursquareStrategy({
                     console.log(user.tok);
                     
                     if (err == null) {
-                        return done(null, user); //Return the new user you created
+                        return done(null, user, newUser); //Return the new user you created
                     }    
                 })
             }
@@ -107,6 +115,7 @@ module.exports = {
   
   //include all Models
   // you can access models with db.User or db.ModelName
+  Image: Image,
   User : User,
   Dog : Dog,
   Parks : Parks,

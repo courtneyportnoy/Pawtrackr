@@ -1,12 +1,18 @@
 // export Schemas to web.js
 module.exports.configureSchema = function(Schema, mongoose) {
     
-        //Dog Info
+    // Image schema
+    var ImageSchema = new Schema({
+        filename: String,
+        timestamp : { type: Date, default: Date.now }    
+    });
+
+    //Dog Info
     var DogSchema = new Schema({
         dogname : {type: String, required: true},
         breed : {type: String, required: true},
         gender : {type: String, required: true},
-        //photo : String,
+        profileImage : [ImageSchema],
         birthday : {
             month: String,
             day : String,
@@ -39,6 +45,7 @@ module.exports.configureSchema = function(Schema, mongoose) {
 
     // add schemas to Mongoose
     mongoose.model('User', UserSchema);
+    mongoose.model('Image', ImageSchema);
     mongoose.model('Dog', DogSchema);
     mongoose.model('ParkData', ParkSchema);
 };

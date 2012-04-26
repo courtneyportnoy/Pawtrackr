@@ -27,7 +27,8 @@ app.configure(function(){
     app.use(express.cookieParser());//Cookies must be turned on for Sessions
     app.use(express.bodyParser());
     app.use(express.methodOverride());
-
+    app.use(express.session({ secret: 'keyboard cat' })); // creates session, secret is used to encrypt
+    
     // Initialize Passport!  Also use passport.session() middleware, to support
     // persistent login sessions (recommended). This code is from Passport-Foursquare Login Example
     app.use(passport.initialize());

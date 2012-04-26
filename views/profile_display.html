@@ -1,7 +1,6 @@
 <div class="row">
    <div class="twelve columns">
-      <h2>Welcome, <%= user.name.givenName %></h2>&nbsp
-      <a href="/update/<%= user.fsID %>" class="nice tiny white radius button" id="edit_button"> Edit </a>
+      <h2>Welcome, <%= user.name.givenName %></h2>
    </div>
 </div>
 <div class="four columns" id="history">
@@ -15,16 +14,16 @@
    <div class="seven columns">
       <p><% for(i=0; i<user.dogs.length; i++) { %>
       <div class="row">
-            <ul class="delete_buttons">
-               <li><a href="/profile/<%= user.fsID %>" class="nice tiny white radius button" id="delete_button"> Delete </a></li>
-            </ul>
-            <div class="dog-image"><img src="http://placehold.it/150"></div>
+            <div class="dog-image"><a href="/user/<%= user.fsID %>/dog/<%=user.dogs[i]._id %>">
+                <img src="https://s3.amazonaws.com/<%= s3bucket %>/<%= user.dogs[i].profileImage[0].filename %>" height=150>
+            </a></div>
             <div class="dogNameDisplay"><b><%= user.dogs[i].dogname %> </b><br></div>
             <div class="dogInfoDisplay"><%= user.dogs[i].gender %> | <%= user.dogs[i].breed %><br/></div>
             <div class="dogBirthdayDisplay">Born on <%=user.dogs[i].birthday.month %> / <%= user.dogs[i].birthday.day %> / <%= user.dogs[i].birthday.year %></div>
             </p><br/><br/><hr>
             <% } %>
       </div>
+      <a href="/user/:fsID/add_dogs" class="nice tiny white radius button" id="addAnotherDog"> Add Another Dog </a>
    </div>
 </div>
 

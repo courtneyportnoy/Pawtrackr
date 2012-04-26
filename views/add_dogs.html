@@ -1,5 +1,5 @@
 <div class="login_container">
-    <form name="add_dogs" id="add_dogs" method="post" action="/ajax/add_dog/" class="nice" enctype="multipart/form-data">
+    <form name="add_dogs" id="add_dogs" method="post" action="/add_dog" class="nice" enctype="multipart/form-data">
         <div class="row">
             <div class="six columns centered">
                 <h2>My Dog</h2>
@@ -318,8 +318,7 @@
         <div class="row" id="formButtons">      
             <div class="six columns centered">
                 <br/><input type="hidden" value="<%= user.fsID %>" name="fsID" id="fsID"/>
-                  <button type="ajaxbutton" id="addAnother" class="nice small white radius button" value="Add another dog">Add another dog with AJAX</button>
-                &nbsp<button type="submit" id="submit" class="nice small blue radius button" value="Submit" >Submit</button>
+                <button type="submit" id="submit" class="nice small blue radius button" value="Submit" >Submit</button>
             </div>
         </div>      
     </form>

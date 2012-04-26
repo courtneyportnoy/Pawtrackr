@@ -2,6 +2,11 @@
 	max-width: 1200px;
 	/*border: 1px solid green;*/
 }
+#welcomeImage {
+	width: 102%;
+	left: 0;
+	position: fixed;
+}
 .three.columns{
 	/*border: 1px solid black;*/
 	float: left;
@@ -18,7 +23,7 @@
 .header {
 	/*background-color: #332723;*/
 	/*border-bottom: solid 4px #00a5ff;*/
-	background-color: #CCC;
+	background: rgb(41,29,26);
 	height: 50px;
 	width: 100%;
 	left: 0;
@@ -36,12 +41,13 @@
 	/*border: 4px solid red;*/
 	padding: 0;
 	z-index: 1;
-	margin-top: 60px;
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-top: 50px;
+	width: auto;
 	position: relative;
 }
 .login_container {
+	margin-left: 5%;
+	margin-right: 5%;
 	border: 1px solid black;
 	padding: 20px;
 	width: 700px;
@@ -78,7 +84,7 @@ select.niceDropdown{
 }
 .dog-image {
 	border: 1px solid grey;
-	width: auto;
+	width: 150px;
 	height: 150px;
 	margin-right: 5%;
 	float: left;
@@ -145,7 +151,8 @@ select.niceDropdown{
 
 /*---------------------HTML Elements-----------------------*/
 body {
-	/*background: #E2C191;*/
+	background: rgb(41,29,26);
+	/*background-image: url('../img/backImage.png');*/
 	font-family: helvetica;
 	padding-bottom: 60px;
 }
@@ -206,17 +213,60 @@ ul.dog_buttons li{
 	display: inline-block;
 }
 ul.actions {
+	border: 1px solid green;
 	position: fixed;
-	right: 10px;
+	right: 20px;
 	margin-top: 9px;
 }
-ul.actions li{
-	margin-left: 5px;
+ul.dogOptions {
+	border: 1px solid green;
+	position: fixed;
+	margin-left: 0;
+	margin-top: 5%;
+	
+}
+ul.actions li, ul.dogOptions li{
 	display: inline-block;
 	float: left;
 	text-align: left;
 	padding: 0;
+	margin-right: 10px;
+	
 }
+#user {
+	margin-right: 10px;
+}
+ul.actions li.myProfile:hover ul {
+	left: 0;
+}
+
+#userMenu {
+	background: rgba(0, 0, 0, 0.85);
+	display: none;
+	min-width: 140px;
+	position: absolute;
+	right: 10px;
+	top: 40px;
+	z-index: 3;
+}
+#userMenu ul {
+	list-style: none;
+	margin: 0;
+}
+li {
+	display: list-item;
+}
+#userMenu ul a {
+	color: white;
+	color: rgba(255, 255, 255, 0.75);
+	display: block;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 30px;
+	padding: 0 25px;
+	text-shadow: none;
+}
+
 label {
 	font-size: 12px;
 	font-weight: normal;
