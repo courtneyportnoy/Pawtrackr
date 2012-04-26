@@ -2,10 +2,29 @@
 	max-width: 1200px;
 	/*border: 1px solid green;*/
 }
+a {
+	color: #555;
+}
 #welcomeImage {
 	width: 102%;
+	top:50px;
 	left: 0;
 	position: fixed;
+}
+#myNav {
+	/*border: 2px solid red;*/
+	border: none;
+	background: rgb(41,29,26);
+	top:0;
+	right: 0;
+	margin-top:0;
+	
+}
+#myNav a{
+	color: #F6B657;
+}
+#myNav .flyout{
+	background: rgb(41,29,26);	
 }
 .three.columns{
 	/*border: 1px solid black;*/
@@ -94,9 +113,15 @@ select.niceDropdown{
 	width: 960px;
 }
 .dogNameDisplay{
+	color: #555;
 	font-size: 4.0em;
 	line-height: 1.2em;
 	
+}
+.parkNameDisplay{
+	font-size: 2.0em;
+	line-height: 1.0em;
+	color: #555;
 }
 .dogInfoDisplay, .dogBirthdayDisplay{
 	font-size: 12pt;
@@ -213,13 +238,13 @@ ul.dog_buttons li{
 	display: inline-block;
 }
 ul.actions {
-	border: 1px solid green;
+	/*border: 1px solid green;*/
 	position: fixed;
 	right: 20px;
 	margin-top: 9px;
 }
 ul.dogOptions {
-	border: 1px solid green;
+	/*border: 1px solid green;*/
 	position: fixed;
 	margin-left: 0;
 	margin-top: 5%;
@@ -255,16 +280,6 @@ ul.actions li.myProfile:hover ul {
 }
 li {
 	display: list-item;
-}
-#userMenu ul a {
-	color: white;
-	color: rgba(255, 255, 255, 0.75);
-	display: block;
-	font-size: 12px;
-	font-weight: bold;
-	line-height: 30px;
-	padding: 0 25px;
-	text-shadow: none;
 }
 
 label {

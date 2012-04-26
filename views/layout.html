@@ -23,46 +23,40 @@
                     <div class="header">
                         <div class="row">
                             <div class="four columns">
-                                <a href="/"><img src="/img/pt_logo_nodogs.png" class="logo" width="150" alt="Some Text"></a>
+                                <a href="/dogparks"><img src="/img/pt_logo_nodogs.png" class="logo" width="150" alt="Some Text"></a>
                             </div>
                             <% if (!user) { %> 
                             <div class="two columns" id="logIn buttons">
                                 <ul class="actions">
                                     <li>
-                                        <a href="/login" class="nice small white radius button" value="Log in"> Log in </a>
-                                    </li>
-                                    <li>
-                                        <a href="/signup" class="nice small white radius button" value="Sign up"> Sign up </a>
-                                    </li>                            
+                                        <a href="/auth/foursquare" class="nice medium white radius button" value="Log in"> Log in with Foursquare</a>
+                                    </li>                         
                                 </ul>
                             </div>
-                           <% } else { %> 
-                            <div class="two columns" id="logIn buttons">
-                                <ul class="actions">
-                                    <li>
-                                        <a href="/user/<%= user.fsID %>/add_dogs" class="nice small white radius button" value="Add Dogs"> Add Dogs </a>
-                                    </li>
-                                    <li>
-                                        <a href="/dogparks" class="nice small white radius button" value="Dog Parks"> Dog Parks </a>
-                                    </li>
-                                    <li>
-                                    <div id="user">
-                                        <a href="/profile/<%= user.fsID %>"> <%= user.name.givenName %> <img src="https://ss0.4sqi.net/img/chrome/iconArrow-8eb40ef0fa51897180caa7feee197de9.png" height="5" width="7" class="userArrow" alt="">
-                                        </a>
-                                        <div class="translate" id="userMenu">
-                                          <ul>
-                                            <li class="selected"><%= user.name.givenName %></li>
-                                                <li class="myProfile"><a href="/profile/<%= user.fsID %>" value="Profile"> Profile </a></li>
-                                                <li class="myProfile"><a href="/user/<%= user.fsID%>/friends" value="Friends"> Friends </a></li>
-                                                <li class="myProfile"><a href="/user/<%= user.fsID %>/myparks" value="Parks"> My Parks </a></li>
-                                                <li class="myProfile"><a href="/logout" value="logout"> Logout </a></li>
+                           <% } else { %>
+                          <!-- <div class="two columns" id="topNav">-->
+                          <div class="four columns">
+                            <ul class="nav-bar" id="myNav">
+                                <li>
+                                    <a href="/user/<%= user.fsID %>/add_dogs" value="Add Dogs"> Add Dogs </a>
+                                </li>
+                                <li>
+                                    <a href="/dogparks" value="Dog Parks"> Dog Parks </a>
+                                </li>
+                                <li class="has-flyout">
+                                    <a href="/profile/<%= user.fsID %>" class="main"><b> <%= user.name.givenName %></b></a>
+                                    <a href="/profile/<%= user.fsID %>" class="flyout-toggle"><span> </span></a>
+                                    <div class="flyout">
+                                            <ul>
+                                                <li><a href="/profile/<%= user.fsID %>" value="Profile"> Profile </a></li>
+                                                <li><a href="/user/<%= user.fsID%>/friends" value="Friends"> Friends </a></li>
+                                                <li><a href="/user/<%= user.fsID %>/myparks" value="Parks"> My Parks </a></li>
+                                                <li><a href="/logout" value="logout"> Logout </a></li>
                                             </ul>
-                                        </div>
-                                      </div>
-                                    </li>
-                                </ul>
-                            </div>
-
+                                    </div>
+                                </li>
+                            </ul>
+                          </div>
                         <% } %>
                         </div>                    
                     </div>
@@ -82,5 +76,6 @@
             <script src="/js/jquery.ae.image.resize.min.js"></script>
             <script type="text/javascript" src="/js/jquery.imagefit.js"></script>
             <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA2vL2KnmS5SFo6QnH6UEgSFUgmEALSnLk&sensor=false"></script>
+            <script src="/js/foundation.js"></script> 
         </body>
     </html>

@@ -17,7 +17,7 @@
             <div class="dog-image"><a href="/user/<%= user.fsID %>/dog/<%=user.dogs[i]._id %>">
                 <img src="https://s3.amazonaws.com/<%= s3bucket %>/<%= user.dogs[i].profileImage[0].filename %>" class="resizeme" height=150 width=150>
             </a></div>
-            <div class="dogNameDisplay"><b><%= user.dogs[i].dogname %> </b><br></div>
+            <div class="dogNameDisplay"><a href="/user/<%= user.fsID %>/dog/<%=user.dogs[i]._id %>"><b><%= user.dogs[i].dogname %> </b></a><br></div>
             <div class="dogInfoDisplay"><%= user.dogs[i].gender %> | <%= user.dogs[i].breed %><br/></div>
             <div class="dogBirthdayDisplay">Born on <%=user.dogs[i].birthday.month %> / <%= user.dogs[i].birthday.day %> / <%= user.dogs[i].birthday.year %></div>
             </p><br/><br/><hr>

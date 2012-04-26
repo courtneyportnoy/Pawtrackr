@@ -1,13 +1,12 @@
 <div class="row">
    <div class="twelve columns">
-      <div id="map_canvas" style="width:100%; height:400px;"></div><br/>
-         <h2>Welcome, <%= user.name.givenName %>!</h2>
+         <div id="map_canvas" style="width:100%; height:350px;"></div><br/>
            <div class="row">
             <div class="twelve columns">
                <p><% for(i=0; i<dogParks.length; i++) { %>
                <div class="row">
                   <ul class="dog_parks">
-                  <li><a href="/dogpark/<%= dogParks[i].id %>"><%= dogParks[i].name %></a></li>
+                  <li><a href="/dogpark/<%= dogParks[i].id %>" class="parkNameDisplay"><%= dogParks[i].name %></a></li>
                   <li><% if(dogParks[i].location.address != undefined) { %> Address: <%= dogParks[i].location.address %><br/><% } %>
                   <li><% if(dogParks[i].location.crossStreet != undefined) { %> cross street: <%= dogParks[i].location.crossStreet %></li><% } %>
                   <li><% if(dogParks[i].location.city != undefined) { %> <%= dogParks[i].location.city %>, <% } %> <% if(dogParks[i].location.state != undefined) { %> <%= dogParks[i].location.state %></li><% } %>

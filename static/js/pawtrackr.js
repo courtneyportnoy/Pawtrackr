@@ -19,7 +19,7 @@ function initialize() {
           center: new google.maps.LatLng(40.788616,-73.96069),
          //center: new google.maps.LatLng(lat,lng),
          maxZoom: 16,
-         zoom: 14,
+         zoom: 15,
          mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
