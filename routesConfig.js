@@ -30,7 +30,7 @@ module.exports = function(app) {
     });
     
     //   which, in this example, will redirect the user to the home page.
-    app.get('/auth/foursquare/callback', passport.authenticate('foursquare', { failureRedirect: '/' }), function(request, response) {
+    app.get('/foursquare/callback', passport.authenticate('foursquare', { failureRedirect: '/' }), function(request, response) {
         console.log("------------------Inside Foursquare Auth Callback----------- User Is:" + request.user.name.givenName);
         console.log(request.newUser);
         console.log("****************************************************************");
