@@ -15,17 +15,17 @@ var currInfoWindow;
 
  //Google Maps Function  
 function initialize() {
-        var myOptions = {
-          center: new google.maps.LatLng(40.788616,-73.96069),
+      var myOptions = {
+         center: new google.maps.LatLng(40.788616,-73.96069),
          //center: new google.maps.LatLng(lat,lng),
          maxZoom: 16,
          zoom: 15,
          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+      };
+      map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
         
-        //function that loads dog park markers
-        displayMarkers();
+      //function that loads dog park markers
+      displayMarkers();
         
 }
      
