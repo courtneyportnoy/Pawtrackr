@@ -23,13 +23,13 @@ module.exports = function(app) {
     app.get('/login', userRoute.login);
     
     // GET /auth/foursquare
-    app.get('/foursquare', passport.authenticate('foursquare'), function(request, response){
+    app.get('/auth/foursquare', passport.authenticate('foursquare'), function(request, response){
     // The request will be redirected to Foursquare for authentication, so this
     // function will not be called.
     });
     
     //   which, in this example, will redirect the user to the home page.
-    app.get('/foursquare/callback', passport.authenticate('foursquare', { failureRedirect: '/login' }), function(request, response) {
+    app.get('/auth/foursquare/callback', passport.authenticate('foursquare', { failureRedirect: '/login' }), function(request, response) {
         console.log("------------------Inside Foursquare Auth Callback----------- User Is:" + request.user.name.givenName);
         console.log(request.newUser);
         console.log("****************************************************************");
