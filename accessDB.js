@@ -8,10 +8,10 @@ var passport = require('passport'),
     FoursquareStrategy = require('passport-foursquare').Strategy;
 
 // Foursquare App Info - commented is live app info
-//var FOURSQUARE_CLIENT_ID = "IBF35MPMOADU1K0TM1GNLOHIP31VUJ0ISMBW4ULCNOX3D5IT";
-//var FOURSQUARE_CLIENT_SECRET = "ZF5ES1GE0IHPT0TZLTMLWWO1GBIRAOOVWX0Z1KVXXOTMLMY3";
-var FOURSQUARE_CLIENT_ID = "DWVWM0PVGVEKB52XINOJZ5BNTJZWW3SIKYY5C3QSJETNHS2R";
-var FOURSQUARE_CLIENT_SECRET = "LJZZF3AM1HA00I5JMPT2VLSINQ1D0N4LSUWDMB4JKVUHMJM1";
+var FOURSQUARE_CLIENT_ID = "IBF35MPMOADU1K0TM1GNLOHIP31VUJ0ISMBW4ULCNOX3D5IT";
+var FOURSQUARE_CLIENT_SECRET = "ZF5ES1GE0IHPT0TZLTMLWWO1GBIRAOOVWX0Z1KVXXOTMLMY3";
+//var FOURSQUARE_CLIENT_ID = "DWVWM0PVGVEKB52XINOJZ5BNTJZWW3SIKYY5C3QSJETNHS2R";
+//var FOURSQUARE_CLIENT_SECRET = "LJZZF3AM1HA00I5JMPT2VLSINQ1D0N4LSUWDMB4JKVUHMJM1";
 
 
 // Include models.js - this file includes the database schema and defines the models used
@@ -48,8 +48,8 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new FoursquareStrategy({
     clientID: FOURSQUARE_CLIENT_ID,
     clientSecret: FOURSQUARE_CLIENT_SECRET,
-    //callbackURL: "http://pawtrackr.herokuapp.com/foursquare/callback"
-    callbackURL: "http://127.0.0.1:5000/auth/foursquare/callback"
+    callbackURL: "http://ptr.herokuapp.com/auth/foursquare/callback"
+    //callbackURL: "http://127.0.0.1:5000/auth/foursquare/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     
