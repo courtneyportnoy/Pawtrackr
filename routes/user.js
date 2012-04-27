@@ -344,7 +344,7 @@ module.exports = {
     
     dogParks: function(request,response) { // displays all nearby on google map and in list view
         latlng = "40.788616,-73.96069";  
-        foursquareURL = "https://api.foursquare.com/v2/venues/search?ll="+latlng+"&limit=200&client_id=IBF35MPMOADU1K0TM1GNLOHIP31VUJ0ISMBW4ULCNOX3D5IT&client_secret=ZF5ES1GE0IHPT0TZLTMLWWO1GBIRAOOVWX0Z1KVXXOTMLMY3&query=dog_run";
+        foursquareURL = "https://api.foursquare.com/v2/venues/search?ll="+latlng+"&limit=200&&radius=1000&client_id="+FOURSQUARE_CLIENT_ID+"&client_secret="+FOURSQUARE_CLIENT_SECRET+"&query=dog_run";
         
         // make the request
         requestURL(foursquareURL, function(err, httpResponse, data) {
