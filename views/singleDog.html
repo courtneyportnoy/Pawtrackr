@@ -13,7 +13,7 @@
 <div class="row">
     <div class="two columns" id="dogOptions">      
         <ul class="dogOptions">
-            <li><a href="/update/<%= user.fsID %>" class="nice tiny white radius button" id="edit_button"> Edit <%= dog.dogname %> </a></li>
+            <li><a href="/update/<%= dog._id %>" class="nice tiny white radius button" id="edit_button"> Edit <%= dog.dogname %> </a></li>
             <li><a href="/deleteDog/<%= dog._id %>" class="nice tiny white radius button" id="delete_button"> Delete <%= dog.dogname %> </a></li>
         </ul>
     </div>

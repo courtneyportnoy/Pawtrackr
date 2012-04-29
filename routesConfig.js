@@ -30,7 +30,7 @@ module.exports = function(app) {
     });
     
     //   which, in this example, will redirect the user to the home page.
-    app.get('/foursquare/callback', passport.authenticate('foursquare', { failureRedirect: '/' }), function(request, response) {
+    app.get('/auth/foursquare/callback', passport.authenticate('foursquare', { failureRedirect: '/' }), function(request, response) {
         console.log("------------------Inside Foursquare Auth Callback----------- User Is:" + request.user.name.givenName);
         console.log(request.newUser);
         console.log("****************************************************************");
@@ -61,8 +61,15 @@ module.exports = function(app) {
     app.get('/user/:fsID/add_dogs', ensureAuthenticated, userRoute.addDogs);
     app.post('/add_dog', ensureAuthenticated, userRoute.postDogs);
     
-    //View Dog
+    //View Single Dog
     app.get('/user/:fsID/dog/:dogID', ensureAuthenticated, userRoute.singleDog);
+    
+    //View all dogs
+    app.get('/dogs', ensureAuthenticated, userRoute.getDogs);
+    
+    //Edit dog
+    app.get('/update/:dogID', ensureAuthenticated, userRoute.update);
+    app.post('/update', ensureAuthenticated, userRoute.postEdit);
     
     //Delete dogs
     app.get('/deleteDog/:dogID', ensureAuthenticated, userRoute.deleteDog);

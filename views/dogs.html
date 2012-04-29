@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="twelve columns">
+       <p><% for(i=0; i<users.length; i++) { %>
+       <b><%= users[1].dogs.length %></b>
+            <% for(j=0; j<users[i].dogs.length; j++) { %>
+                <div class="row">
+                    <div class="dog-image">                
+                        <a href="/user/<%= users[i].fsID %>/dog/<%=users[i].dogs[j]._id %>">
+                            <img src="https://s3.amazonaws.com/<%= s3bucket %>/<%= users[i].dogs[j].profileImage[0].filename %>" class="resizeme" height=150 width=150>
+                       </a>
+                    </div>
+                   <div class="dogNameDisplay"><a href="/user/<%= users[i].fsID %>/dog/<%=users[i].dogs[j]._id %>"><b><%= users[i].dogs[j].dogname %> </b><br>
+                   </div>
+                   <div class="dogInfoDisplay"><%= users[i].dogs[j].gender %> | <%= users[i].dogs[j].breed %><br/></div>
+                     <div class="dogBirthdayDisplay">Born on <%=users[i].dogs[j].birthday.month %> / <%= users[i].dogs[j].birthday.day %> / <%= users[i].dogs[j].birthday.year %></div>
+                     </p><br/><br/><hr>
+                <% } %>
+        <% } %>
+        </div>
+    </div>
+</div>

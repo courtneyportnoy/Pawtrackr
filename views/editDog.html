@@ -1,0 +1,85 @@
+ <div class="login-container">
+   <form name="editDog" class="nice" method="post" action="/update">
+          <div class="row" id="user dogs">
+              <div class="two columns">
+                  <h4>My Dog</h4>
+                  <br/>
+              </div>
+          </div>
+          <div id="dynamicInput" class="dynamicInput">
+              <div class="row">
+                  <div class="six columns centered">
+                      <label for="dogname">Dog Name </label>
+                      <input type="text" max-length="255" class="input-text" name="dogname" placeholder="Dog's Name" id="dogname" value= "<%= dog.dogname %>"/>
+                  </div>
+              </div>
+              <div class="six columns centered">
+                  <div class="row display">
+                      <div class="three columns">
+                          <label for="gender">Gender</label>
+                          <select id="gender" name="gender" class="niceDropdown">
+                          <option> Select </option>
+                             <% for(j=0; j<myGlobals.dogGenders.length; j++) { %>
+                             <option <% if (myGlobals.dogGenders[j] == dog.gender) { %>SELECTED <% } %> value="<%= myGlobals.dogGenders[j] %>"><%= myGlobals.dogGenders[j] %></option>
+                             <% } %>
+                          </select>
+                      </div>
+                      <div class="three columns" id="breedSelect">
+                        <label for="breed">Breed </label>
+                          <select id="breed" name="breed" class="niceDropdown">
+                              <option> Select </option>
+                              <% for(j=0; j<myGlobals.dogBreeds.length; j++) { %>
+                              <option <% if (myGlobals.dogBreeds[j] == dog.breed) { %>SELECTED <% } %> value="<%= myGlobals.dogBreeds[j] %>"><%= myGlobals.dogBreeds[j] %></option>
+                              <% } %>
+                          </select>
+                      </div>  
+                      <div class="three columns" id="extra1">                   
+                      </div>
+                      <div class="three columns" id="extra2">
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+               <div class="six columns centered" id="dateSelect">
+                  <div class="row display">               
+                      <div class="three columns" id="monthSelect">
+                          <label for="birthday">Birthday</label>
+                          <select class="niceDropdown" name="DateOfBirth_Month" id="DateOfBirth_Month">
+                              <option>Month</option>
+                              <% for(j=0; j<myGlobals.months.length; j++) { %>
+                             <option <% if (myGlobals.months[j] == dog.birthday.month) { %>SELECTED <% } %> value="<%= myGlobals.months[j] %>"><%= myGlobals.months[j] %></option>
+                             <% } %>
+                          </select>
+                      </div>
+                      <div class="three columns" id="daySelect">
+                          <label for="bday_day"> &nbsp</label>
+                          <select class="niceDropdown" name="DateOfBirth_Day" id="DateOfBirth_Day">
+                              <option>Day</option>
+                             <% for(j=0; j<myGlobals.days.length; j++) { %>
+                             <option <% if (myGlobals.days[j] == dog.birthday.day) { %>SELECTED <% } %> value="<%= myGlobals.days[j] %>"><%= myGlobals.days[j] %></option>
+                             <% } %>
+                          </select>
+                      </div>
+                      <div class="three columns" id="yearSelect">
+                          <label for="bday_yr"> &nbsp</label>
+                          <select class="niceDropdown" name="DateOfBirth_Year" id="DateOfBirth_Year">
+                              <option>Year</option>
+                             <% for(j=0; j<myGlobals.years.length; j++) { %>
+                             <option <% if (myGlobals.years[j] == dog.birthday.year) { %>SELECTED <% } %> value="<%= myGlobals.years[j] %>"><%= myGlobals.years[j] %></option>
+                             <% } %>
+                          </select>
+                      </div>
+                      <div class="three columns" id="extra">
+                  </div>
+                  </div>
+               </div>
+          </div>
+         <div class="row" id="formButtons">      
+            <div class="six columns centered">
+                <br/><input type="hidden" value="<%= dog._id %>" name="dogID" id="dogID"/>
+                <button type="submit" id="submit" class="nice small blue radius button" value="Submit" >Submit</button>
+            </div>
+        </div>      
+    </form>
+</div>

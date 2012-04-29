@@ -8,10 +8,19 @@ var currInfoWindow;
 //run this code when the browser has loaded
    jQuery(document).ready(function() {
       
+      
+      //flyout
+      jQuery('.nav-bar>li.has-flyout').hover(function() {
+         jQuery(this).children('.flyout').show();
+       }, function() {
+         jQuery(this).children('.flyout').hide();
+       });
+      
       //initialize google maps
       initialize();
-      
    });
+   
+   
 
  //Google Maps Function  
 function initialize() {

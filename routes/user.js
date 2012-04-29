@@ -79,11 +79,109 @@ module.exports = {
         console.log(request.user.dogs.id(dogID));
         
         var templateData = {
+            myGlobals : myGlobals,
             s3bucket: S3Client.bucket,
             dog: request.user.dogs.id(dogID),
             user : request.user
         };
         response.render('singleDog.html', templateData);
+    },
+    
+    update: function(request, response) {
+      var dogID = request.params.dogID;
+      
+      console.log("------Dog------------");
+      console.log(request.user.dogs.id(dogID));
+      
+      templateData = {
+            myGlobals : myGlobals,
+            dog: request.user.dogs.id(dogID),
+            user : request.user
+      }
+      //response.json(templateData);
+      response.render('edit.html', templateData)
+        
+    },
+    
+    postEdit: function(request,response) {
+      
+            var dogID = request.body.dogID;
+            console.log(dogID);
+            db.User.findOne({fsID: request.user.fsID}, function(err, user){
+                  if(err) {
+                    console.log('error' + err);
+                    response.send("uh oh, can't find that user");
+                  }
+                  if(user){
+                        console.log("--------------------inside edit post------------------");
+                        db.Dog.findOne({id: dogID}, function(err, dog) {
+                              console.log("inside find dog-------");
+                              console.log(dog);
+                        });
+                        
+                              //Create Dog Object   - need way to add dogname1,2,3,...etc. based on dynamic form 
+                              var updateData = {
+                                  dogname : request.body.dogname,
+                                  breed : request.body.breed,
+                                  gender : request.body.gender,
+                                  birthday : {
+                                      month: request.body.DateOfBirth_Month,
+                                      day : request.body.DateOfBirth_Day,
+                                      year : request.body.DateOfBirth_Year
+                                  }
+                              };
+                              console.log("inside edit post, user is ");
+                              console.log(user);
+                              
+                 /*       // var condition = { username : username };
+                        var condition = { user.dogs.id(dogID) : dogID };
+                        // we only want to update a single document
+                        var options = { multi : false };    
+                        db.User.update( condition, updateData, options, function(err, numAffected){
+                       
+                              if (err) {
+                                  console.log('Update Error Occurred');
+                                  response.send('Update Error Occurred ' + err);
+                        
+                              } else {
+                                  
+                                  console.log("update succeeded");
+                                  console.log(numAffected + " document(s) updated");
+                                  
+                                  //redirect the user to the update page - append ?update=true to URL
+                                  
+                              }
+                        });*/
+                  }
+            
+            // after updating run the callback function - return err and numAffected           
+            response.redirect('/profile/:request.user.fsID');
+            });
+      },
+    
+    getDogs: function(request,response) {
+        
+        // define the fields you want to include in your json data
+        //includeFields = ['dogs.dogname','dogs.breed','dogs.gender', 'dogs.birthday'];
+      
+        // query for all dogs
+        queryConditions = {}; //empty conditions - return everything
+        db.User.find(queryConditions, function (err, users) {
+            
+            console.log("-------- Dog DATA RECEIVED -------");
+            console.log(users);
+            console.log("------------------------------");
+            
+            templateData = {
+                    users : users,
+                    s3bucket: S3Client.bucket,
+                    user: request.user
+                }
+                //templateData.layout = 'layout_loggedIn.html';
+                //response.json(templateData);
+                response.render('dogs.html', templateData);
+        })
+        
     },
     
     userFriends: function(request,response) {
@@ -242,9 +340,6 @@ module.exports = {
         response.redirect('/');
     },
     
-    update: function(request, response) {
-        
-    },
     
     deleteDog : function(request, response) {
         //find dog by dogID
