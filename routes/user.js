@@ -155,7 +155,7 @@ module.exports = {
                   }
             
             // after updating run the callback function - return err and numAffected           
-            response.redirect('/profile/:fsID');
+            response.redirect('/profile/' + request.user.fsID);
             });
       },
     
@@ -302,8 +302,7 @@ module.exports = {
                                 day : request.body.DateOfBirth_Day,
                                 year : request.body.DateOfBirth_Year
                             }
-                        };
-                        
+                        };                      
                         //add the dog to the user
                         user.dogs.push(dog);
                         
@@ -313,15 +312,12 @@ module.exports = {
                             console.log(err);
                         });
                         
-                        response.redirect('/profile/:fsID');
+                        response.redirect('/profile/' + request.user.fsID);
                     
                     } else {
-                    
-                        response.send("an error occurred. unable to upload file to S3.");
-                    
+                        response.send("an error occurred. unable to upload file to S3.");                   
                     }
-                });
-            
+                });            
                 // 3d) finally send the content of the file and end
                 req.end(buf);
             });
@@ -381,7 +377,7 @@ module.exports = {
                         user.save(function (err) {
                           // embedded comment with id `my_id` removed!
                         request.flash("message","Dog removed from S3 and Mongo");
-                        response.redirect('/profile/:fsID'); 
+                        response.redirect('/profile/' + request.user.fsID); 
                         });
                     }
                 });
@@ -389,7 +385,7 @@ module.exports = {
             } else {
                 
                 request.flash("message", "unable to delete image");
-                response.redirect("/profile/:fsID");
+                response.redirect('/profile/' + request.user.fsID);
             }
         })
     },
