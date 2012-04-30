@@ -46,8 +46,8 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new FoursquareStrategy({
     clientID: FOURSQUARE_CLIENT_ID,
     clientSecret: FOURSQUARE_CLIENT_SECRET,
-    callbackURL: "http://pawtrackr.herokuapp.com/foursquare/callback"
-    //callbackURL: "http://127.0.0.1:5000/auth/foursquare/callback"
+    // this is where you would put the live callbackURL, using local URL here for dev purposes
+    callbackURL: "http://127.0.0.1:5000/auth/foursquare/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     
