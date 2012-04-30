@@ -1,13 +1,14 @@
-A boilerplate to use NodeJS, Express & Passport with MongoDB on Heroku!
+This is Pawtrackr, an app that allows you to create a profile for your dogs, find local dog parks, and (eventually), 
+follow friends and parks.
 
-Much of this code was possible from Raquel Vélez's [CrowdNotes project](https://github.com/rockbot/CrowdNotes)
-And Raquel's notes on [Mongoose Auth --> Passport](http://raquelvelez.com/blog/2012/03/transitioning-from-mongoose-auth-to-passport/)
+Much of this code was possible from John Schimmel's many examples for our Dynamic Web Development class [John Schimmel](https://github.com/johnschimmel). 
+This app uses the MongoDB database, as well as Amazon S3 for storing uploaded files.
 
 # Set up file structure and Heroku App
 
 In your terminal, clone this repo
 
-	git clone git@github.com:johnschimmel/DWD-User-Authentication.git
+	git clone git@github.com:cmcrew/PT.git
 
 
 If you haven't already, create a new app on Heroku (cedar), this will add an additional remote GIT path to Heroku. (Assumes you have [Heroku Toolbelt](https://toolbelt.heroku.com/) installed)
@@ -60,7 +61,26 @@ This code uses the [Knox NodeJS S3](https://github.com/LearnBoost/knox) module. 
 
     // CHANGE THIS TO YOUR BUCKET NAME
     var myBucket = 'YOUR_BUCKET_NAME';
-    
+  
+-------
+
+## Foursquare API
+
+### Create a developer account for Foursquare
+To create a new app using the Foursquare API, click the "My Apps" button at the top of the [Foursquare Developer](https://developer.foursquare.com/index) page. Then click "Register a New Consumer" at the top. You must have a Foursquare account to access this service.
+
+### Set up a bucket
+When you have your account set up, you can set up your first Bucket in the [AWS S3 Console](http://aws.amazon.com/s3/). On the left panel, click the "Create Bucket", fill in the Bucket name field. Leave the 'Region' as 'US Standard'. Click the Create button to finish and create the bucket.
+
+Add Amazon S3 config variables for local dev
+
+    echo AWS_KEY=YOUR_AWS_KEY >> .env
+    echo AWS_SECRET=YOUR_AWS_SECRET >> .env
+
+Add Amazon S3 config variables to Heroku config. These variables will be used on the LIVE herokuapp.com servers.
+
+    heroku config:add AWS_KEY=YOUR_AWS_KEY AWS_SECRET=YOUR_AWS_SECRET
+
 -------
 
 # Get the party started
