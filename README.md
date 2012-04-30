@@ -69,17 +69,17 @@ This code uses the [Knox NodeJS S3](https://github.com/LearnBoost/knox) module. 
 ### Create a developer account for Foursquare
 To create a new app using the Foursquare API, click the "My Apps" button at the top of the [Foursquare Developer](https://developer.foursquare.com/index) page. Then click "Register a New Consumer" at the top. You must have a Foursquare account to access this service.
 
-### Set up a bucket
-When you have your account set up, you can set up your first Bucket in the [AWS S3 Console](http://aws.amazon.com/s3/). On the left panel, click the "Create Bucket", fill in the Bucket name field. Leave the 'Region' as 'US Standard'. Click the Create button to finish and create the bucket.
+### Set up a new App
+Enter your app name and information in the form. To create a local dev app, use http://127.0.0.1:5000 for your app URL and http://127.0.0.1:5000/auth/foursquare/callback for your callback URL. After clicking submit, you will receive your FOURSQUARE API Client id and Client secret.
 
-Add Amazon S3 config variables for local dev
+Add Foursquare config variables for local dev
 
-    echo AWS_KEY=YOUR_AWS_KEY >> .env
-    echo AWS_SECRET=YOUR_AWS_SECRET >> .env
+    echo FOURSQUARE_CLIENT_ID=YOUR_FOURSQUARE_CLIENT_ID >> .env
+    echo FOURSQUARE_CLIENT_SECRET=YOUR_FOURSQUARE_CLIENT_SECRET >> .env
 
-Add Amazon S3 config variables to Heroku config. These variables will be used on the LIVE herokuapp.com servers.
+Add Foursquare config variables to Heroku config. These variables will be used on the LIVE herokuapp.com servers.
 
-    heroku config:add AWS_KEY=YOUR_AWS_KEY AWS_SECRET=YOUR_AWS_SECRET
+    heroku config:add FOURSQUARE_CLIENT_ID=YOUR_FOURSQUARE_CLIENT_ID FOURSQUARE_CLIENT_SECRET=YOUR_FOURSQUARE_CLIENT_SECRET
 
 -------
 
