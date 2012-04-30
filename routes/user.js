@@ -155,7 +155,7 @@ module.exports = {
                   }
             
             // after updating run the callback function - return err and numAffected           
-            response.redirect('/profile/:request.user.fsID');
+            response.redirect('/profile/:fsID');
             });
       },
     
