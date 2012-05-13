@@ -464,9 +464,9 @@ foursquareURL= "https://api.foursquare.com/v2/venues/search?ll=40.788616,-73.960
                 var mapParks = [];
                 
                 // add data to array of dogpark info for mapping
-                for(i = 0; i < dogParkData.response.groups[0].items.length; i++) {
+                for(i = 0; i < dogParkData.response.venues.length; i++) {
                     
-                    currPark = dogParkData.response.groups[0].items[i];
+                    currPark = dogParkData.response.venues[i];
                     mapParks.push({
                         title : currPark.name,
                         id : currPark.id,
@@ -478,7 +478,7 @@ foursquareURL= "https://api.foursquare.com/v2/venues/search?ll=40.788616,-73.960
                 templateData = {
                     mapParks : JSON.stringify(mapParks),
                     pageTitle : "Pawtrackr",
-                    dogParks : dogParkData.response.groups[0].items,
+                    dogParks : dogParkData.response.venues,
                     requestedURL : foursquareURL,
                     user: request.user
                 }
