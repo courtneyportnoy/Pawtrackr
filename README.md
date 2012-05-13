@@ -1,13 +1,14 @@
-A boilerplate to use NodeJS, Express & Passport with MongoDB on Heroku!
+This is Pawtrackr, an app that allows you to create a profile for your dogs, find local dog parks, and (eventually), 
+follow friends and parks.
 
-Much of this code was possible from Raquel Vélez's [CrowdNotes project](https://github.com/rockbot/CrowdNotes)
-And Raquel's notes on [Mongoose Auth --> Passport](http://raquelvelez.com/blog/2012/03/transitioning-from-mongoose-auth-to-passport/)
+Much of this code was possible from John Schimmel's many examples for our Dynamic Web Development class [John Schimmel](https://github.com/johnschimmel). 
+This app uses the MongoDB database, as well as Amazon S3 for storing uploaded files.
 
 # Set up file structure and Heroku App
 
 In your terminal, clone this repo
 
-	git clone git@github.com:johnschimmel/DWD-User-Authentication.git
+	git clone git@github.com:cmcrew/PT.git
 
 
 If you haven't already, create a new app on Heroku (cedar), this will add an additional remote GIT path to Heroku. (Assumes you have [Heroku Toolbelt](https://toolbelt.heroku.com/) installed)
@@ -60,7 +61,26 @@ This code uses the [Knox NodeJS S3](https://github.com/LearnBoost/knox) module. 
 
     // CHANGE THIS TO YOUR BUCKET NAME
     var myBucket = 'YOUR_BUCKET_NAME';
-    
+  
+-------
+
+## Foursquare API
+
+### Create a developer account for Foursquare
+To create a new app using the Foursquare API, click the "My Apps" button at the top of the [Foursquare Developer](https://developer.foursquare.com/index) page. Then click "Register a New Consumer" at the top. You must have a Foursquare account to access this service.
+
+### Set up a new App
+Enter your app name and information in the form. To create a local dev app, use http://127.0.0.1:5000 for your app URL and http://127.0.0.1:5000/auth/foursquare/callback for your callback URL. After clicking submit, you will receive your FOURSQUARE API Client id and Client secret.
+
+Add Foursquare config variables for local dev
+
+    echo FOURSQUARE_CLIENT_ID=YOUR_FOURSQUARE_CLIENT_ID >> .env
+    echo FOURSQUARE_CLIENT_SECRET=YOUR_FOURSQUARE_CLIENT_SECRET >> .env
+
+Add Foursquare config variables to Heroku config. These variables will be used on the LIVE herokuapp.com servers.
+
+    heroku config:add FOURSQUARE_CLIENT_ID=YOUR_FOURSQUARE_CLIENT_ID FOURSQUARE_CLIENT_SECRET=YOUR_FOURSQUARE_CLIENT_SECRET
+
 -------
 
 # Get the party started
